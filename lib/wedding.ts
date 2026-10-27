@@ -17,7 +17,7 @@ export const wedding = {
 		address: '3901 Lampson Avenue, Seal Beach, CA 90740',
 		mapQuery: 'Old Ranch Country Club, 3901 Lampson Ave, Seal Beach, CA',
 		/** Replace null with '/images/ceremony.webp' when you supply a photo. */
-		image: null as string | null
+		image: '/images/venue.webp'
 	},
 	reception: {
 		label: 'The Reception',
@@ -28,7 +28,8 @@ export const wedding = {
 		address: '15583–15589 Brookhurst Street, Westminster, CA 92683',
 		mapQuery: 'Paracel Events & Catering, 15583 Brookhurst St, Westminster, CA',
 		/** Replace null with '/images/reception.webp' when you supply a photo. */
-		image: null as string | null
+		// image: '/images/reception.webp'
+		image: '/images/paracel.webp'
 	},
 	gallery: [
 		{
