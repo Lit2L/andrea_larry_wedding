@@ -33,7 +33,7 @@ export function Hero({ darkMode, toggleTheme }: Props) {
 			{/* Mobile intentionally shows full wide photo (no face crop). */}
 			<div className='relative pt-[82px] md:hidden'>
 				<Image
-					src='/images/larry-andrea-hero.webp'
+					src='/images/mobile.png'
 					alt='Larry and Andrea together over dinner'
 					width={1672}
 					height={941}
