@@ -1,0 +1,129 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@400;500;600&display=swap');
+@import 'tailwindcss';
+
+:root {
+	color-scheme: light;
+}
+html {
+	scroll-behavior: smooth;
+}
+body {
+	margin: 0;
+}
+
+.wedding {
+	--paper: #f5eee4;
+	--ink: #372d25;
+	--muted: #877866;
+	--line: #d8c9b7;
+	background: var(--paper);
+	color: var(--ink);
+	font-family: 'DM Sans', Arial, sans-serif;
+	-webkit-font-smoothing: antialiased;
+}
+.wedding[data-theme='night'] {
+	--paper: #272a30;
+	--ink: #f4e8d8;
+	--muted: #c5b6a4;
+	--line: #595b5e;
+}
+.font-editorial {
+	font-family: 'Cormorant Garamond', Georgia, serif;
+	font-weight: 400;
+}
+.paper {
+	background: var(--paper);
+	color: var(--ink);
+	transition: background-color 450ms ease, color 450ms ease;
+}
+.hero-wave path {
+	fill: var(--paper);
+	transition: fill 450ms ease;
+}
+.eyebrow {
+	font-size: 10px;
+	letter-spacing: 0.29em;
+	text-transform: uppercase;
+	color: var(--muted);
+}
+.text-theme-muted {
+	color: var(--muted);
+}
+.border-theme-line {
+	border-color: var(--line);
+}
+.nav-link {
+	font-size: 11px;
+	letter-spacing: 0.18em;
+	text-transform: uppercase;
+	transition: opacity 200ms ease;
+}
+.nav-link:hover {
+	opacity: 0.65;
+}
+.outline-pill {
+	border: 1px solid var(--line);
+	border-radius: 999px;
+	color: var(--ink);
+	transition: background 200ms ease, color 200ms ease;
+}
+.outline-pill:hover {
+	background: var(--ink);
+	color: var(--paper);
+}
+.venue-photo {
+	background: linear-gradient(135deg, #e6d9c6 0%, #ccb99f 58%, #dfd0ba 100%);
+}
+.venue-sun {
+	background: rgba(255, 250, 228, 0.75);
+}
+.venue-flower {
+	position: absolute;
+	bottom: -56px;
+	right: -15px;
+	font-family: Georgia, serif;
+	font-size: 210px;
+	line-height: 1;
+	color: rgba(106, 84, 58, 0.11);
+	transform: rotate(-19deg);
+}
+.travel-card {
+	background: color-mix(in srgb, var(--paper) 89%, var(--ink));
+}
+.travel-hotel-card {
+	background: color-mix(in srgb, var(--paper) 94%, var(--ink));
+	transition: background-color 250ms ease, transform 250ms ease;
+}
+.travel-hotel-card:hover {
+	background: color-mix(in srgb, var(--paper) 89%, var(--ink));
+	transform: translateY(-3px);
+}
+.travel-guide-panel {
+	background: color-mix(in srgb, var(--paper) 90%, var(--ink));
+}
+.wedding a:focus-visible,
+.wedding button:focus-visible {
+	outline: 2px solid currentColor;
+	outline-offset: 5px;
+}
+@media (prefers-reduced-motion: reduce) {
+	html {
+		scroll-behavior: auto;
+	}
+	.wedding *,
+	.wedding *::before,
+	.wedding *::after {
+		animation-duration: 0.01ms !important;
+		transition-duration: 0.01ms !important;
+	}
+}
+
+/* Guest guide: editorial dining and practical FAQ cards */
+.travel-restaurant-card,
+.travel-faq-card {
+	background: color-mix(in srgb, var(--paper) 94%, var(--ink));
+	transition: background-color 250ms ease;
+}
+.travel-restaurant-card:hover {
+	background: color-mix(in srgb, var(--paper) 89%, var(--ink));
+}
