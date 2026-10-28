@@ -233,7 +233,7 @@ export function Travel() {
 						id='eat'
 						number='02'
 						eyebrow='Something Delicious'
-						title='Where to eat'
+						title='Our top spots to eat'
 						description='A little taste of Orange County: coastal brunch and seafood, plus some of the Vietnamese food that makes Little Saigon special.'
 						isOpen={openCategory === 'eat'}
 						onToggle={() => toggleCategory('eat')}

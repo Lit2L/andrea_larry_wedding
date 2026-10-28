@@ -13,7 +13,7 @@ export const wedding = {
 		name: 'Old Ranch Country Club',
 		city: 'Seal Beach, California',
 		date: 'Saturday, May 22, 2027',
-		time: '12:00 PM',
+		time: '11:30 AM',
 		address: '3901 Lampson Avenue, Seal Beach, CA 90740',
 		mapQuery: 'Old Ranch Country Club, 3901 Lampson Ave, Seal Beach, CA',
 		/** Replace null with '/images/ceremony.webp' when you supply a photo. */
@@ -24,7 +24,7 @@ export const wedding = {
 		name: 'Paracel Events & Catering',
 		city: 'Westminster, California',
 		date: 'Saturday, May 22, 2027',
-		time: 'To follow',
+		time: '6:00 PM',
 		address: '15583–15589 Brookhurst Street, Westminster, CA 92683',
 		mapQuery: 'Paracel Events & Catering, 15583 Brookhurst St, Westminster, CA',
 		/** Replace null with '/images/reception.webp' when you supply a photo. */
