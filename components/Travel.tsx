@@ -163,85 +163,25 @@ export function Travel() {
 				</Reveal>
 
 				<div className='mt-12 space-y-4'>
-					{/* 01: Hotels */}
-					<TravelAccordion
-						id='stay'
-						number='01'
-						eyebrow='Settle In'
-						title='Where to stay'
-						description='A few hotel options with different personalities, from convenient to coastal. Pick what works best for your trip.'
-						isOpen={openCategory === 'stay'}
-						onToggle={() => toggleCategory('stay')}
-					>
-						<div className='mt-7 grid gap-4 md:grid-cols-3'>
-							{recommendedHotels.map((hotel, index) => (
-								<Reveal key={hotel.id} delay={index * 0.08} className='h-full'>
-									<article className='travel-hotel-card group flex h-full flex-col border border-theme-line px-6 pb-7 pt-6 sm:px-7 sm:pt-8'>
-										<div className='flex items-start justify-between gap-3'>
-											<p className='eyebrow max-w-[75%] leading-4'>{hotel.eyebrow}</p>
-											<span
-												aria-hidden='true'
-												className='font-editorial text-4xl leading-none text-theme-muted opacity-40'
-											>
-												0{index + 1}
-											</span>
-										</div>
-										<div className='my-7 h-px w-11 bg-[#b69772]' aria-hidden='true' />
-										<h4 className='font-editorial text-[clamp(2.2rem,3vw,3rem)] leading-[0.95]'>
-											{hotel.name}
-										</h4>
-										<p className='mt-3 text-[10px] uppercase tracking-[0.18em] text-theme-muted'>
-											{hotel.location}
-										</p>
-										<p className='mt-6 text-sm leading-7 text-theme-muted'>{hotel.description}</p>
-										<div className='mt-7 border-t border-theme-line pt-5'>
-											<p className='flex items-start gap-2 text-xs leading-5 text-theme-muted'>
-												<MapPin size={14} className='mt-0.5 shrink-0' aria-hidden='true' />
-												{hotel.address}
-											</p>
-										</div>
-										<div className='mt-auto flex flex-wrap items-center gap-x-5 gap-y-3 pt-8'>
-											<a
-												href={hotel.url}
-												target='_blank'
-												rel='noopener noreferrer'
-												className='inline-flex min-h-11 items-center gap-2 border-b border-current pb-1 text-[10px] uppercase tracking-[0.14em] transition-opacity group-hover:opacity-80'
-											>
-												View hotel <ArrowUpRight size={15} aria-hidden='true' />
-											</a>
-											<a
-												href={mapsUrl(hotel.address)}
-												target='_blank'
-												rel='noopener noreferrer'
-												className='inline-flex min-h-11 items-center text-[10px] uppercase tracking-[0.14em] text-theme-muted underline underline-offset-4'
-											>
-												Directions
-											</a>
-										</div>
-									</article>
-								</Reveal>
-							))}
-						</div>
-						<p className='mt-5 text-center text-[11px] leading-6 text-theme-muted'>
-							These are hotel suggestions, not reserved wedding room blocks or guaranteed rates.
-							Check directly for availability and current policies.
-						</p>
-					</TravelAccordion>
-
 					{/* 02: Dining recommendations */}
 					<TravelAccordion
 						id='eat'
-						number='02'
-						eyebrow='Something Delicious'
-						title='Our top spots to eat'
-						description='A little taste of Orange County: coastal brunch and seafood, plus some of the Vietnamese food that makes Little Saigon special.'
+						number='01'
+						eyebrow='Eat Something'
+						title='Our Favorite Eats'
+						description='Our Recommendations.'
 						isOpen={openCategory === 'eat'}
 						onToggle={() => toggleCategory('eat')}
 					>
 						<div className='mt-7 grid gap-4 sm:grid-cols-2'>
 							{recommendedRestaurants.map((restaurant, index) => (
 								<Reveal key={restaurant.id} delay={(index % 2) * 0.07}>
-									<article className='travel-restaurant-card group flex h-full flex-col border border-theme-line p-6 sm:p-8'>
+									<article
+										className='travel-restaurant-card group flex h-full flex-col border border-theme-line bg-cover bg-center p-6 sm:p-8'
+										style={{
+											backgroundImage: `linear-gradient(rgba(247, 242, 234, 0.84), rgba(247, 242, 234, 0.92)), url(${restaurant.image})`
+										}}
+									>
 										<div className='flex items-center justify-between gap-4'>
 											<p className='eyebrow'>{restaurant.category}</p>
 											<span
@@ -289,6 +229,75 @@ export function Travel() {
 						<p className='mt-5 text-center text-[11px] leading-6 text-theme-muted'>
 							These are local suggestions, not wedding events. Restaurant schedules, menus, and
 							availability may change before May 2027.
+						</p>
+					</TravelAccordion>
+
+					{/* 01: Hotels */}
+					<TravelAccordion
+						id='stay'
+						number='02'
+						eyebrow='Settle In'
+						title='Where to stay'
+						description='A few hotel options with different personalities, from convenient to coastal. Pick what works best for your trip.'
+						isOpen={openCategory === 'stay'}
+						onToggle={() => toggleCategory('stay')}
+					>
+						<div className='mt-7 grid gap-4 md:grid-cols-3'>
+							{recommendedHotels.map((hotel, index) => (
+								<Reveal key={hotel.id} delay={index * 0.08} className='h-full'>
+									<article
+										className='travel-hotel-card group flex h-full flex-col border border-theme-line bg-cover bg-center px-6 pb-7 pt-6 sm:px-7 sm:pt-8'
+										style={{
+											backgroundImage: `linear-gradient(rgba(247, 242, 234, 0.84), rgba(247, 242, 234, 0.92)), url(${hotel.image})`
+										}}
+									>
+										<div className='flex items-start justify-between gap-3'>
+											<p className='eyebrow max-w-[75%] leading-4'>{hotel.eyebrow}</p>
+											<span
+												aria-hidden='true'
+												className='font-editorial text-4xl leading-none text-theme-muted opacity-40'
+											>
+												0{index + 1}
+											</span>
+										</div>
+										<div className='my-7 h-px w-11 bg-[#b69772]' aria-hidden='true' />
+										<h4 className='font-editorial text-[clamp(2.2rem,3vw,3rem)] leading-[0.95]'>
+											{hotel.name}
+										</h4>
+										<p className='mt-3 text-[10px] uppercase tracking-[0.18em] text-theme-muted'>
+											{hotel.location}
+										</p>
+										<p className='mt-6 text-sm leading-7 text-theme-muted'>{hotel.description}</p>
+										<div className='mt-7 border-t border-theme-line pt-5'>
+											<p className='flex items-start gap-2 text-xs leading-5 text-theme-muted'>
+												<MapPin size={14} className='mt-0.5 shrink-0' aria-hidden='true' />
+												{hotel.address}
+											</p>
+										</div>
+										<div className='mt-auto flex flex-wrap items-center gap-x-5 gap-y-3 pt-8'>
+											<a
+												href={hotel.url}
+												target='_blank'
+												rel='noopener noreferrer'
+												className='inline-flex min-h-11 items-center gap-2 border-b border-current pb-1 text-[10px] uppercase tracking-[0.14em] transition-opacity group-hover:opacity-80'
+											>
+												View hotel <ArrowUpRight size={15} aria-hidden='true' />
+											</a>
+											<a
+												href={mapsUrl(hotel.address)}
+												target='_blank'
+												rel='noopener noreferrer'
+												className='inline-flex min-h-11 items-center text-[10px] uppercase tracking-[0.14em] text-theme-muted underline underline-offset-4'
+											>
+												Directions
+											</a>
+										</div>
+									</article>
+								</Reveal>
+							))}
+						</div>
+						<p className='mt-5 text-center text-[11px] leading-6 text-theme-muted'>
+							We reserved wedding room blocks for people coming in from out of town.
 						</p>
 					</TravelAccordion>
 

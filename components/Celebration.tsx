@@ -37,15 +37,8 @@ function VenuePanel({ venue, number, title, delay = 0 }: VenuePanelProps) {
 		<Reveal delay={delay} className='min-w-0'>
 			<article
 				className='
-          group relative isolate
-          min-h-[440px]
-          overflow-hidden
-          rounded-[4px]
-          bg-[#29242B]
-          text-[#FFF8F0]
-          sm:min-h-[480px]
-          lg:min-h-[500px]
-        '
+          group relative isolate          min-h-[440px]          overflow-hidden          rounded-[4px]
+          bg-[#29242B]          text-[#FFF8F0]          sm:min-h-[480px]          lg:min-h-[500px]        '
 			>
 				{/* Background photograph */}
 				{venue.image && (
@@ -379,14 +372,7 @@ export function Celebration() {
 						{/* ✧ ☾ */}
 					</span>
 
-					<p
-						className='
-              font-editorial
-              text-[24px]
-              italic
-              text-[#65574B]
-            '
-					>
+					<p className='font-editorial text-[24px] italic text-[#65574B]'>
 						{/* Under the moon &amp; stars */}
 					</p>
 					{/* Timeline */}

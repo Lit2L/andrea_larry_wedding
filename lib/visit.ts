@@ -10,49 +10,31 @@ export const recommendedHotels = [
 		address: '17550 Brookhurst Street, Fountain Valley, CA 92708',
 		description:
 			'A comfortable home base near Westminster, with complimentary breakfast and hotel parking.',
+		image: '/travel/ayres-hotel-fountain-valley.jpg',
 		url: 'https://www.ayreshotels.com/ayres-hotel-fountain-valley'
-	},
-	{
-		id: 'westin-south-coast-plaza',
-		eyebrow: 'An elevated stay',
-		name: 'The Westin South Coast Plaza',
-		location: 'Costa Mesa',
-		address: '686 Anton Boulevard, Costa Mesa, CA 92626',
-		description:
-			'A polished full-service hotel near shopping, restaurants, and the Segerstrom Center for the Arts.',
-		url: 'https://www.marriott.com/en-us/hotels/snawi-the-westin-south-coast-plaza-costa-mesa/overview/'
-	},
-	{
-		id: 'pacific-inn',
-		eyebrow: 'By the coast',
-		name: 'The Pacific Inn',
-		location: 'Seal Beach',
-		address: '600 Marina Drive, Seal Beach, CA 90740',
-		description:
-			'A relaxed boutique option near Seal Beach Main Street and the pier for guests making a weekend of it.',
-		url: 'https://www.thepacificinn.com/'
 	}
 ] as const
 
 /** Verified local spots, chosen for geographic and cuisine variety. */
 export const recommendedRestaurants = [
 	{
-		id: 'hangout-seal-beach',
-		name: 'The Hangout Restaurant & Beach Bar',
-		location: 'Seal Beach',
-		category: 'Brunch by the beach',
-		address: '901 Ocean Avenue, Seal Beach, CA 90740',
-		description:
-			'A laid-back spot across from the Seal Beach Pier for breakfast, comfort food, and ocean views.',
+		id: 'pho',
+		name: 'Pho Ha Noi FV',
+		location: 'Fountain Valley',
+		category: 'If you want Pho',
+		address: '18380 Brookhurst St, Fountain Valley, CA 92708',
+		description: 'They hook it up here.',
+		image: '/travel/pho-ha-noi-fv.jpg',
 		url: 'https://www.thehangoutrestaurant.com/'
 	},
 	{
-		id: 'walts-wharf',
-		name: 'Walt’s Wharf',
-		location: 'Seal Beach',
-		category: 'Coastal seafood',
-		address: '201 Main Street, Seal Beach, CA 90740',
-		description: 'A classic Main Street seafood restaurant, a short walk from the beach.',
+		id: 'egg-noodles',
+		name: 'Mai Phát Mì Gia',
+		location: 'Westminster',
+		category: 'If you want Mì (Egg Noodles)',
+		address: '9191 Bolsa Ave, Ste 104-105, Westminster, CA 92683',
+		description: 'Egg noodles',
+		image: '/images/MaiPhatNoodle.webp',
 		url: 'https://www.waltswharf.com/'
 	},
 	{
@@ -61,8 +43,8 @@ export const recommendedRestaurants = [
 		location: 'Fountain Valley',
 		category: 'Vietnamese favorites',
 		address: '16105 Brookhurst Street, Fountain Valley, CA 92708',
-		description:
-			'A lively Vietnamese restaurant known for its grilled pork spring rolls and flavorful dipping sauce.',
+		description: 'Little Saigon staple.',
+		image: '/travel/brodard-restaurant.jpg',
 		url: 'https://www.brodardrestaurant.net/'
 	},
 	{
@@ -73,6 +55,7 @@ export const recommendedRestaurants = [
 		address: '8894 Bolsa Avenue, Westminster, CA 92683',
 		description:
 			'A longtime Little Saigon institution for a comforting bowl of Vietnamese noodle soup.',
+		image: '/travel/pho-79.jpg',
 		url: 'https://guide.michelin.com/us/en/california/westminster_2880089/restaurant/pho-79'
 	}
 ] as const
@@ -101,9 +84,7 @@ export const nearbyAirports = [
 	}
 ] as const
 
-/** Details not decided by the couple are explicit, editable placeholders. */
 export const guestDetails = {
-	/** Leave blank until an actual registry destination is selected. */
 	registryUrl: process.env.NEXT_PUBLIC_REGISTRY_URL?.trim() || '',
 	registryMessage: "Registry information will be shared here when it's ready.",
 	dressCode: 'Dress code details coming soon.',
@@ -112,6 +93,5 @@ export const guestDetails = {
 	receptionParking: 'Paracel Events & Catering lists complimentary self-parking for guests.',
 	foodAllergies:
 		"If you have a food allergy or dietary restriction, please let Larry or Andrea know as early as possible, ideally before the RSVP deadline. We'll check possible accommodations with our caterer; an allergen-free kitchen cannot be guaranteed.",
-	/** Optional guest-contact email for allergy/dietary questions. */
 	contactEmail: process.env.NEXT_PUBLIC_WEDDING_CONTACT_EMAIL?.trim() || ''
 } as const
