@@ -164,6 +164,7 @@ export function Travel() {
 
 				<div className='mt-12 space-y-4'>
 					{/* 02: Dining recommendations */}
+
 					<TravelAccordion
 						id='eat'
 						number='01'
@@ -175,61 +176,86 @@ export function Travel() {
 					>
 						<div className='mt-7 grid gap-4 sm:grid-cols-2'>
 							{recommendedRestaurants.map((restaurant, index) => (
-								<Reveal key={restaurant.id} delay={(index % 2) * 0.07}>
-									<article
-										className='travel-restaurant-card group flex h-full flex-col border border-theme-line bg-cover bg-center p-6 sm:p-8'
-										style={{
-											backgroundImage: `linear-gradient(rgba(247, 242, 234, 0.84), rgba(247, 242, 234, 0.92)), url(${restaurant.image})`
-										}}
-									>
-										<div className='flex items-center justify-between gap-4'>
-											<p className='eyebrow'>{restaurant.category}</p>
-											<span
-												aria-hidden='true'
-												className='font-editorial text-3xl text-theme-muted opacity-40'
-											>
-												0{index + 1}
-											</span>
+								<Reveal key={restaurant.id} delay={(index % 2) * 0.06} className='h-full'>
+									<article className='group flex h-full overflow-hidden rounded-xl border border-theme-line bg-[#f7f2ea] text-[#252b35] transition-colors duration-300 hover:border-[#b69772]'>
+										{/* Dedicated restaurant photograph */}
+										<div className='relative w-[34%] min-w-[105px] shrink-0 overflow-hidden bg-[#e8dfd3] sm:w-[38%]'>
+											<img
+												src={restaurant.image}
+												alt={`${restaurant.name} restaurant`}
+												loading='lazy'
+												className='absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105'
+											/>
 										</div>
-										<h4 className='font-editorial mt-6 text-[clamp(2rem,3vw,2.8rem)] leading-none'>
-											{restaurant.name}
-										</h4>
-										<p className='mt-2 text-[10px] uppercase tracking-[0.16em] text-theme-muted'>
-											{restaurant.location}
-										</p>
-										<p className='mt-5 flex-1 text-sm leading-7 text-theme-muted'>
-											{restaurant.description}
-										</p>
-										<p className='mt-6 flex items-start gap-2 border-t border-theme-line pt-5 text-xs leading-5 text-theme-muted'>
-											<MapPin size={14} className='mt-0.5 shrink-0' aria-hidden='true' />
-											{restaurant.address}
-										</p>
-										<div className='mt-5 flex flex-wrap items-center gap-6'>
-											<a
-												href={restaurant.url}
-												target='_blank'
-												rel='noopener noreferrer'
-												className='inline-flex min-h-11 items-center gap-2 text-[10px] uppercase tracking-[0.13em] underline underline-offset-4'
-											>
-												Restaurant info <ArrowUpRight size={14} aria-hidden='true' />
-											</a>
-											<a
-												href={mapsUrl(restaurant.address)}
-												target='_blank'
-												rel='noopener noreferrer'
-												className='inline-flex min-h-11 items-center text-[10px] uppercase tracking-[0.13em] text-theme-muted underline underline-offset-4'
-											>
-												Directions
-											</a>
+
+										{/* Restaurant details */}
+										<div className='flex min-w-0 flex-1 flex-col p-4 sm:p-5'>
+											<div className='flex items-center justify-start gap-2'>
+												<span className='font-editorial text-lg text-[#b69772]'>0{index + 1}</span>
+												<p className='mt-1 text-[10px] uppercase tracking-[0.08em] text-[#827c75]'>
+													{restaurant.category}
+												</p>
+											</div>
+
+											<h4 className='font-editorial mt-2 text-[clamp(1.5rem,2.5vw,2rem)] leading-tight'>
+												{restaurant.name}
+											</h4>
+
+											<p className='mt-3 text-xs leading-5 text-[#605e5b]'>
+												{restaurant.description}
+											</p>
+
+											{/* Personal menu recommendations */}
+											<div className='mt-4 border-t border-[#ded3c4] pt-3'>
+												<p className='text-[9px] font-semibold uppercase tracking-[0.15em] text-[#9b7957]'>
+													Our Picks
+												</p>
+
+												<div className='mt-2 flex flex-wrap gap-1.5'>
+													{restaurant.menuPicks.length > 0 ? (
+														restaurant.menuPicks.map((pick) => (
+															<span
+																key={pick}
+																className='rounded-full border border-[#ded3c4] bg-white/60 px-2.5 py-1 text-[11px] text-[#45413d]'
+															>
+																{pick}
+															</span>
+														))
+													) : (
+														<span className='text-xs italic text-[#827c75]'>
+															Our favorites coming soon
+														</span>
+													)}
+												</div>
+											</div>
+
+											{/* Links */}
+											<div className='mt-auto flex flex-wrap items-center gap-x-4 gap-y-2 pt-4 text-[10px] font-medium uppercase tracking-[0.08em]'>
+												<a
+													href={restaurant.url}
+													target='_blank'
+													rel='noopener noreferrer'
+													className='inline-flex items-center gap-1 text-[#816444] hover:underline'
+												>
+													Restaurant Info
+													<ArrowUpRight size={12} />
+												</a>
+
+												<a
+													href={mapsUrl(restaurant.address)}
+													target='_blank'
+													rel='noopener noreferrer'
+													className='inline-flex items-center gap-1 text-[#605e5b] hover:underline'
+												>
+													Directions
+													<MapPin size={12} />
+												</a>
+											</div>
 										</div>
 									</article>
 								</Reveal>
 							))}
 						</div>
-						<p className='mt-5 text-center text-[11px] leading-6 text-theme-muted'>
-							These are local suggestions, not wedding events. Restaurant schedules, menus, and
-							availability may change before May 2027.
-						</p>
 					</TravelAccordion>
 
 					{/* 01: Hotels */}
@@ -302,7 +328,7 @@ export function Travel() {
 					</TravelAccordion>
 
 					{/* 03: Airports + between-venue travel */}
-					<TravelAccordion
+					{/* <TravelAccordion
 						id='arrive'
 						number='03'
 						eyebrow='Getting Here'
@@ -385,7 +411,7 @@ export function Travel() {
 								</div>
 							</Reveal>
 						</div>
-					</TravelAccordion>
+					</TravelAccordion> */}
 
 					{/* 04: Registry, parking, dress code, allergies */}
 					<TravelAccordion
